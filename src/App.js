@@ -22,6 +22,10 @@ export default App;
 const Container = styled.div`
   width: 100%;
   margin: 0 auto;
-  max-width: 900px;
+  max-width: 1024px;
   padding: 50px 0;
+
+  @media only screen and (max-width: 414px) {
+    max-width: 414px;
+  }
 `;

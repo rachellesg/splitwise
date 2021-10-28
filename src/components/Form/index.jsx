@@ -67,7 +67,7 @@ const FormWrapper = styled.div`
 const InputWrapper = styled.div`
   display: inline-flex;
   margin: 0 0 15px;
-  min-width: 500px;
+  min-width: 50%;
   label {
     width: 50%;
     text-align: right;
@@ -81,7 +81,7 @@ const InputWrapper = styled.div`
 const SelectWrapper = styled.div`
   display: inline-flex;
   margin: 0 0 15px;
-  min-width: 500px;
+  min-width: 50%;
   label {
     width: 50%;
     text-align: right;
