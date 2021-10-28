@@ -22,6 +22,6 @@ export default App;
 const Container = styled.div`
   width: 100%;
   margin: 0 auto;
-  max-width: 768px;
+  max-width: 900px;
   padding: 50px 0;
 `;

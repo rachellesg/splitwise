@@ -20,11 +20,14 @@ function Form() {
 
   return (
     <FormWrapper>
-      <InputWrapper
-        type="text"
-        name="amount"
-        onChange={(e) => setTotalAmount(e.target.value)}
-      />
+      <InputWrapper>
+        <label for="total-amount">Total Bill Amount:</label>
+        <input
+          type="text"
+          name="total-amount"
+          onChange={(e) => setTotalAmount(e.target.value)}
+        />
+      </InputWrapper>
       <SelectWrapper>
         <label for="number-of-friends">Number of friends:</label>
         <select name="number-of-friends" onChange={selectFriendsTotal}>
@@ -38,11 +41,11 @@ function Form() {
 
       <button onClick={calculateSplitAmount}>Calculate Amount</button>
 
-      <div className="result">
-        {finalAmount && (
-          <div className="friends-pay">Each pays {finalAmount}</div>
-        )}
-      </div>
+      <ResultsWrapper>
+        <div className="friends-pay">
+          Each person will have to pay: ${finalAmount}
+        </div>
+      </ResultsWrapper>
     </FormWrapper>
   );
 }
@@ -54,11 +57,12 @@ const FormWrapper = styled.div`
   flex-direction: column;
 `;
 
-const InputWrapper = styled.input`
-  height: 35px;
-  padding: 5px 8px;
-  font-size: 45px;
+const InputWrapper = styled.div`
+  display: inline-flex;
   margin: 0 0 15px;
+  input {
+    width: 50%;
+  }
 `;
 
 const SelectWrapper = styled.div`
@@ -67,4 +71,10 @@ const SelectWrapper = styled.div`
   select {
     width: 50%;
   }
+`;
+
+const ResultsWrapper = styled.div`
+  margin: 30px 0;
+  font-size: 45px;
+  font-weight: 500;
 `;
