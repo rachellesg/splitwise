@@ -5,3 +5,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Phase 1
 
 ### Basic Logic Implementation & Styling
+
+- Total amount, number of friends, calculate amount

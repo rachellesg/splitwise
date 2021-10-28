@@ -26,11 +26,16 @@ function Form() {
           type="text"
           name="total-amount"
           onChange={(e) => setTotalAmount(e.target.value)}
+          placeholder="Enter total bill amount"
         />
       </InputWrapper>
       <SelectWrapper>
         <label for="number-of-friends">Number of friends:</label>
-        <select name="number-of-friends" onChange={selectFriendsTotal}>
+        <select
+          name="number-of-friends"
+          value="1"
+          onChange={selectFriendsTotal}
+        >
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -55,11 +60,19 @@ export default Form;
 const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const InputWrapper = styled.div`
   display: inline-flex;
   margin: 0 0 15px;
+  min-width: 500px;
+  label {
+    width: 50%;
+    text-align: right;
+    margin-right: 15px;
+  }
   input {
     width: 50%;
   }
@@ -68,6 +81,12 @@ const InputWrapper = styled.div`
 const SelectWrapper = styled.div`
   display: inline-flex;
   margin: 0 0 15px;
+  min-width: 500px;
+  label {
+    width: 50%;
+    text-align: right;
+    margin-right: 15px;
+  }
   select {
     width: 50%;
   }
@@ -75,6 +94,6 @@ const SelectWrapper = styled.div`
 
 const ResultsWrapper = styled.div`
   margin: 30px 0;
-  font-size: 45px;
+  font-size: 25px;
   font-weight: 500;
 `;
