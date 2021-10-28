@@ -4,7 +4,7 @@ import styled from "styled-components";
 function Form() {
   const [totalAmount, setTotalAmount] = useState(0);
   const [finalAmount, setFinalAmount] = useState(0);
-  const [totalNumberOfFriends, setTotalNumberOfFriends] = useState(0);
+  const [totalNumberOfFriends, setTotalNumberOfFriends] = useState(1);
 
   const selectFriendsTotal = (e) => {
     e.preventDefault();
