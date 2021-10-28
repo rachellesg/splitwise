@@ -7,3 +7,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### Basic Logic Implementation & Styling
 
 - Total amount, number of friends, calculate amount
+
+### Next steps
+
+- Add itemized billing
+- Add and select friends
