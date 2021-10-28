@@ -1,8 +1,9 @@
-import logo from "./logo.svg";
+import { Fragment } from "react";
 import "./App.css";
 import styled from "styled-components";
 
-import Form from "./components/Form/index.jsx";
+import Header from "./components/Header";
+import Form from "./components/Form";
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
         <header className="App-header">Rachelle's Splitwise</header>
       </div>
       <Container>
+        <Fragment>
+          <Header>Title</Header>
+        </Fragment>
         <Form />
       </Container>
     </>
