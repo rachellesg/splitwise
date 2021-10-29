@@ -33,7 +33,7 @@ function Form() {
         <label for="number-of-friends">Number of friends:</label>
         <select
           name="number-of-friends"
-          value="1"
+          value={totalNumberOfFriends}
           onChange={selectFriendsTotal}
         >
           <option value="1">1</option>
