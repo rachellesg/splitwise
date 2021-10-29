@@ -15,12 +15,9 @@ function Form() {
 
   // this pushes selected friends into a list
   const selectFriendsToggle = (e) => {
-    e.preventDefault();
     selectedFriends.includes(e.target.value)
-      ? console.log("!! DUPLICATE, already have in list")
+      ? console.log("!! DUPLI have in list")
       : selectedFriends.push(e.target.value);
-
-    console.log(selectedFriends);
   };
 
   // this is for number of friends (drop down)
