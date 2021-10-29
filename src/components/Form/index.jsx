@@ -5,11 +5,28 @@ function Form() {
   const [totalAmount, setTotalAmount] = useState(0);
   const [finalAmount, setFinalAmount] = useState(0);
   const [totalNumberOfFriends, setTotalNumberOfFriends] = useState(1);
+  const [listOfFriends, setListOfFriends] = useState([
+    "Sally",
+    "Poppy",
+    "Lisa",
+  ]);
 
+  const selectedFriends = [];
+
+  // this pushes selected friends into a list
+  const selectFriendsToggle = (e) => {
+    e.preventDefault();
+    selectedFriends.includes(e.target.value)
+      ? console.log("!! DUPLICATE, already have in list")
+      : selectedFriends.push(e.target.value);
+
+    console.log(selectedFriends);
+  };
+
+  // this is for number of friends (drop down)
   const selectFriendsTotal = (e) => {
     e.preventDefault();
     setTotalNumberOfFriends(e.target.value);
-    console.log(e.target.value);
   };
 
   const calculateSplitAmount = (e) => {
@@ -43,6 +60,22 @@ function Form() {
           <option value="5">5</option>
         </select>
       </SelectWrapper>
+
+      <div className="toggle-select-friends-buttons">
+        {listOfFriends.map((friend) => {
+          return (
+            <>
+              <label for={friend}>{friend}</label>
+              <input
+                type="radio"
+                onClick={selectFriendsToggle}
+                name="selected-friends"
+                value={friend}
+              />
+            </>
+          );
+        })}
+      </div>
 
       <button onClick={calculateSplitAmount}>Calculate Amount</button>
 
