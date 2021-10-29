@@ -1,35 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 function Form() {
   const [totalAmount, setTotalAmount] = useState(0);
   const [finalAmount, setFinalAmount] = useState(0);
-  const [totalNumberOfFriends, setTotalNumberOfFriends] = useState(1);
   const [listOfFriends, setListOfFriends] = useState([
     "Sally",
     "Poppy",
     "Lisa",
   ]);
 
-  const selectedFriends = [];
+  const [selectedFriends, setSelectedFriends] = useState([]);
 
-  // this pushes selected friends into a list
   const selectFriendsToggle = (e) => {
-    selectedFriends.includes(e.target.value)
-      ? console.log("!! DUPLI have in list")
-      : selectedFriends.push(e.target.value);
-  };
-
-  // this is for number of friends (drop down)
-  const selectFriendsTotal = (e) => {
-    e.preventDefault();
-    setTotalNumberOfFriends(e.target.value);
+    const addedFriend = e.target.value;
+    // to check whether friends is duplicated
+    const hasSelectedFriends = !selectedFriends.includes(addedFriend);
+    hasSelectedFriends
+      ? selectedFriends.push(addedFriend)
+      : console.log("remove here");
   };
 
   const calculateSplitAmount = (e) => {
-    e.preventDefault();
-    const finalAmount = totalAmount / totalNumberOfFriends;
-    setFinalAmount(finalAmount);
+    const checkIfEmptyList = selectedFriends.length !== 0;
+    if (checkIfEmptyList) {
+      console.log(selectedFriends);
+      const totalNumberOfFriends = selectedFriends.length;
+      const finalAmount = totalAmount / totalNumberOfFriends;
+      setFinalAmount(finalAmount);
+    }
   };
 
   return (
@@ -43,20 +42,6 @@ function Form() {
           placeholder="Enter total bill amount"
         />
       </InputWrapper>
-      <SelectWrapper>
-        <label for="number-of-friends">Number of friends:</label>
-        <select
-          name="number-of-friends"
-          value={totalNumberOfFriends}
-          onChange={selectFriendsTotal}
-        >
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-      </SelectWrapper>
 
       <div className="toggle-select-friends-buttons">
         {listOfFriends.map((friend) => {
@@ -64,9 +49,9 @@ function Form() {
             <>
               <label for={friend}>{friend}</label>
               <input
-                type="radio"
+                type="checkbox"
                 onClick={selectFriendsToggle}
-                name="selected-friends"
+                name={friend}
                 value={friend}
               />
             </>
@@ -104,20 +89,6 @@ const InputWrapper = styled.div`
     margin-right: 15px;
   }
   input {
-    width: 50%;
-  }
-`;
-
-const SelectWrapper = styled.div`
-  display: inline-flex;
-  margin: 0 0 15px;
-  min-width: 50%;
-  label {
-    width: 50%;
-    text-align: right;
-    margin-right: 15px;
-  }
-  select {
     width: 50%;
   }
 `;
