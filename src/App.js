@@ -12,14 +12,14 @@ function App() {
     <Router>
       <Container>
         <Header>Euro-vacay</Header>
-        <Form />
+        {/* <Form /> */}
+        <Switch>
+          <Route path="/about">About</Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
       </Container>
-      <Switch>
-        <Route path="/about">About</Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
     </Router>
   );
 }

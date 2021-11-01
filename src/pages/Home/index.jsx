@@ -1,5 +1,12 @@
+import Friends from "../../components/Friends";
+
 function Home() {
-  return <> This is homepage</>;
+  return (
+    <>
+      Welcome to your dashboard xx
+      <Friends />
+    </>
+  );
 }
 
 export default Home;
