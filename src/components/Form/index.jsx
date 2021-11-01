@@ -1,27 +1,35 @@
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 
 function Form() {
-  const [totalAmount, setTotalAmount] = useState(0);
+  const billAmount = useRef();
   const [finalAmount, setFinalAmount] = useState(0);
   const [listOfFriends, setListOfFriends] = useState([
-    "Sally",
-    "Poppy",
-    "Lisa",
+    { name: "Sally" },
+    { name: "Peter" },
+    { name: "Ethan" },
   ]);
 
   const [selectedFriends, setSelectedFriends] = useState([]);
 
+  useEffect(() => {
+    localStorage.setItem("Selected Friends", JSON.stringify(selectedFriends));
+  }, [selectedFriends]);
+
   const selectFriendsToggle = (e) => {
     const addedFriend = e.target.value;
+    console.log(addedFriend);
+    console.log(selectedFriends);
     // to check whether friends is duplicated
-    const hasSelectedFriends = !selectedFriends.includes(addedFriend);
-    hasSelectedFriends
-      ? // ? setSelectedFriends((prevState) => {
-        //     return { ...prevState, ...addedFriend };
-        //   })
-        selectedFriends.push(addedFriend)
-      : console.log("remove here", addedFriend);
+    const hasSelectedFriends = !selectedFriends.find((item) => {
+      return item.name == addedFriend;
+    });
+    setSelectedFriends((prevState) => {
+      return [...prevState, { name: addedFriend }];
+    });
+    // hasSelectedFriends
+    //   ? selectedFriends.push(addedFriend)
+    //   : selectedFriends.filter((i) => i !== addedFriend);
   };
 
   const calculateSplitAmount = (e) => {
@@ -29,7 +37,7 @@ function Form() {
     if (checkIfEmptyList) {
       console.log(selectedFriends);
       const totalNumberOfFriends = selectedFriends.length;
-      const finalAmount = totalAmount / totalNumberOfFriends;
+      const finalAmount = billAmount.current.value / totalNumberOfFriends;
       setFinalAmount(finalAmount);
     }
   };
@@ -39,23 +47,24 @@ function Form() {
       <InputWrapper>
         <label for="total-amount">Total Bill Amount:</label>
         <input
+          ref={billAmount}
           type="text"
           name="total-amount"
-          onChange={(e) => setTotalAmount(e.target.value)}
           placeholder="Enter total bill amount"
         />
       </InputWrapper>
 
       <div className="toggle-select-friends-buttons">
         {listOfFriends.map((friend) => {
+          const { name } = friend;
           return (
             <>
-              <label for={friend}>{friend}</label>
+              <label for={name}>{name}</label>
               <input
                 type="checkbox"
                 onClick={selectFriendsToggle}
-                name={friend}
-                value={friend}
+                name={name}
+                value={name}
               />
             </>
           );

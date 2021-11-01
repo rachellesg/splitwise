@@ -10,9 +10,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
   return (
     <Router>
-      <div className="App">
-        <header className="App-header">Rachelle's Splitwise</header>
-      </div>
       <Container>
         <Header>Euro-vacay</Header>
         <Form />
