@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import FriendsList from "./List";
 
+import styled from "styled-components";
+
 function Friends() {
   const [friends, setFriendsList] = useState([
     { owner: "Rachelle", name: "Charles" },
@@ -26,12 +28,20 @@ function Friends() {
   };
 
   return (
-    <>
+    <FriendsWrapper>
       <FriendsList friends={friends} />
       <input ref={friendsRef} type="text" />
       <button onClick={handleAddFriend}>Add Friend</button>
-    </>
+    </FriendsWrapper>
   );
 }
 
 export default Friends;
+
+const FriendsWrapper = styled.div`
+  width: 40%;
+  max-width: 300px;
+  border: 1px solid #888888;
+  padding: 20px;
+  box-shadow: 6px 8px hotpink;
+`;
