@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 import Header from "./components/Header";
-import Form from "./components/Form";
 
 import Home from "./pages/Home";
 
@@ -12,7 +11,6 @@ function App() {
     <Router>
       <Container>
         <Header>Euro-vacay</Header>
-        {/* <Form /> */}
         <Switch>
           <Route path="/about">About</Route>
           <Route path="/">

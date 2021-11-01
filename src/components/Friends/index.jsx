@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import FriendsList from "./List";
 
 function Friends() {
@@ -6,6 +6,15 @@ function Friends() {
     { owner: "Rachelle", name: "Charles" },
   ]);
   const friendsRef = useRef();
+
+  useEffect(() => {
+    const storedFriendsList = JSON.parse(localStorage.getItem("Friends"));
+    if (storedFriendsList) setFriendsList(storedFriendsList);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("Friends", JSON.stringify(friends));
+  }, [friends]);
 
   const handleAddFriend = (e) => {
     const name = friendsRef.current.value;
