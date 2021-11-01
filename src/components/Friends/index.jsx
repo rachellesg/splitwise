@@ -41,7 +41,6 @@ export default Friends;
 const FriendsWrapper = styled.div`
   width: 40%;
   max-width: 300px;
-  border: 1px solid #888888;
   padding: 20px;
   box-shadow: 6px 8px hotpink;
 `;
