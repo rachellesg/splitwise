@@ -17,8 +17,11 @@ function Form() {
     // to check whether friends is duplicated
     const hasSelectedFriends = !selectedFriends.includes(addedFriend);
     hasSelectedFriends
-      ? selectedFriends.push(addedFriend)
-      : console.log("remove here");
+      ? // ? setSelectedFriends((prevState) => {
+        //     return { ...prevState, ...addedFriend };
+        //   })
+        selectedFriends.push(addedFriend)
+      : console.log("remove here", addedFriend);
   };
 
   const calculateSplitAmount = (e) => {
