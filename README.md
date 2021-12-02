@@ -10,5 +10,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Next steps
 
-- Add itemized billing
-- Add and select friends
+- [] Add itemized billing
+- [] Add and select friends
+- [] Delete bill
+- [] Delete friend
