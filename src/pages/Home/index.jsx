@@ -55,20 +55,30 @@ function Home() {
   // }, [friends]);
   return (
     <ContentWrapper>
-      <h1>This is home page yay</h1>
+      <FriendsWrapper>
+        <div className="friends-fields">
+          <input ref={friendsRef} type="text" />
+          <br />
+          <button onClick={handleAddFriend}>Add Friend</button>
+        </div>
+        <FriendsList friends={friends} />
+        <br />
+        Amount per pax: ${totalBills / friends.length}
+      </FriendsWrapper>
       <BillWrapper>
         <BillsList bills={bills} />
-        <input ref={billNameRef} type="text" placeholder="Name of Bill" />
-        <input ref={billRef} type="number" placeholder="Amount" />
+        <div className="bill-fields">
+          <div className="bill-fields_name">
+            <input ref={billNameRef} type="text" placeholder="Name of Bill" />
+          </div>
+          <div className="bill-fields_amount">
+            <input ref={billRef} type="number" placeholder="Amount" />
+          </div>
+        </div>
         <button onClick={handleAddBill}>Add Bill</button>
+        <br />
         Total Settlement Amount: {totalBills}
       </BillWrapper>
-      <FriendsWrapper>
-        <FriendsList friends={friends} />
-        <input ref={friendsRef} type="text" />
-        <button onClick={handleAddFriend}>Add Friend</button>
-      </FriendsWrapper>
-      Amount per pax: ${totalBills / friends.length}
     </ContentWrapper>
   );
 }
@@ -76,18 +86,58 @@ function Home() {
 export default Home;
 
 const ContentWrapper = styled.section`
-  display: inline-flex;
-  justify-content: space-between;
-`;
-
-const BillWrapper = styled.div`
-  padding: 20px;
-  box-shadow: -6px -8px 0 0 darkolivegreen;
+  /* display: inline-flex;
+  justify-content: space-between; */
+  width: 768px;
+  margin: 0 auto;
 `;
 
 const FriendsWrapper = styled.div`
-  width: 40%;
-  max-width: 300px;
+  display: inline-flex;
+  width: 100%;
   padding: 20px;
-  box-shadow: 6px 8px hotpink;
+  margin: 0 0 30px;
+  box-shadow: 0 0 50px #ccc;
+  background: #c490f7;
+
+  .friends-fields {
+  }
+  .friends-content {
+    padding: 0 20px;
+    .friends-content_friend {
+    }
+  }
+`;
+
+const BillWrapper = styled.div`
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0 0 50px #ccc;
+
+  .bill-fields {
+    display: flex;
+    justify-content: space-between;
+    input[type="number"] {
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      border-bottom: 1px dotted darkolivegreen;
+      font-size: 25px;
+      width: 80px;
+      padding: 5px 10px;
+    }
+  }
+  .bill-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    .bill-content_title {
+    }
+    .bill-content_amount {
+      background: #9b80e6;
+      color: #ffffff;
+      padding: 5px 10px;
+    }
+  }
 `;

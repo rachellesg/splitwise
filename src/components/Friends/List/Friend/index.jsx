@@ -1,5 +1,5 @@
 function Friend({ friend }) {
-  return <div>{friend}</div>;
+  return <div className="friends-content_friend">{friend}</div>;
 }
 
 export default Friend;

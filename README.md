@@ -10,7 +10,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Next steps
 
+#### Phase 2A
+
 - [ ] Add itemized billing
-- [ ] Add and select friends
 - [ ] Delete bill
 - [ ] Delete friend
+
+#### Phase 2B
+
+- [ ] Add and select friends

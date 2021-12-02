@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <Container>
-        <Header>Euro-vacay</Header>
+        <Header>THE SPLIGO APP</Header>
         <Switch>
           <Route path="/about">About</Route>
           <Route path="/">

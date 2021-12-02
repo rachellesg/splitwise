@@ -2,7 +2,11 @@ import Friend from "./Friend";
 
 function FriendsList({ friends }) {
   return friends.map((friend, index) => {
-    return <Friend key={index} friend={friend.name} />;
+    return (
+      <div className="friends-content">
+        <Friend key={index} friend={friend.name} />
+      </div>
+    );
   });
 }
 

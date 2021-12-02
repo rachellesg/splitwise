@@ -1,7 +1,7 @@
 function Bill({ bill }) {
   return (
-    <div>
-      {bill.name} {bill.amount}
+    <div className="bill-content">
+      {bill.name} <div className="bill-content_amount">{bill.amount}</div>
     </div>
   );
 }
