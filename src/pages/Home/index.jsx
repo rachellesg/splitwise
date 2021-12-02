@@ -21,10 +21,9 @@ function Home() {
   const handleAddBill = (e) => {
     const billName = billNameRef.current.value;
     const bill = billRef.current.value;
-    if (bill === "") return null;
     console.log(billName, bill);
     setBill((prevList) => {
-      return [...prevList, { name: billName, amount: bill }];
+      return [...prevList, { name: billName, amount: parseInt(bill) || 0 }];
     });
     billNameRef.current.value = null;
     billRef.current.value = null;
@@ -40,8 +39,9 @@ function Home() {
   };
 
   const totalBills = bills.reduce((totalBillsAmount, bill) => {
+    console.log(bills);
     console.log(`Total: ${totalBillsAmount}`);
-    console.log(`Item: ${bill.amount}`);
+    console.log(`Bill: ${bill.amount}`);
     return totalBillsAmount + bill.amount;
   }, 0);
 
@@ -68,6 +68,7 @@ function Home() {
         <input ref={friendsRef} type="text" />
         <button onClick={handleAddFriend}>Add Friend</button>
       </FriendsWrapper>
+      Amount per pax: ${totalBills / friends.length}
     </ContentWrapper>
   );
 }
