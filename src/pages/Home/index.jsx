@@ -77,7 +77,7 @@ function Home() {
         </div>
         <button onClick={handleAddBill}>Add Bill</button>
         <br />
-        Total Settlement Amount: {totalBills}
+        Total Settlement Amount: ${totalBills}
       </BillWrapper>
     </ContentWrapper>
   );
@@ -103,8 +103,19 @@ const FriendsWrapper = styled.div`
   .friends-fields {
   }
   .friends-content {
+    display: inline-flex;
     padding: 0 20px;
     .friends-content_friend {
+      display: flex;
+      flex-direction: column;
+      .friends-content_friend-profile {
+        width: 40px;
+        height: 40px;
+        background: #292b45;
+        border-radius: 50%;
+      }
+      .friends-content_friend-name {
+      }
     }
   }
 `;
